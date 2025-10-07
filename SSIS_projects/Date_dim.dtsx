@@ -1,0 +1,1411 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2025 11:16:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-2JM42PHL"
+  DTS:CreatorName="LAPTOP-2JM42PHL\Nazrin"
+  DTS:DTSID="{255B4AD4-0DCA-4312-8A49-26E04F4973F5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{3965A469-1F05-4284-9E35-277FBD103783}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Admissions_DB]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7755DA50-DB25-4A7C-8D1B-2B567E6EE864}"
+      DTS:ObjectName="LAPTOP-2JM42PHL\MSSQLSERVER01.Admissions_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-2JM42PHL\MSSQLSERVER01;Initial Catalog=Admissions_DB;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{7755DA50-DB25-4A7C-8D1B-2B567E6EE864}LAPTOP-2JM42PHL\MSSQLSERVER01.Admissions_DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Diagnosis_DB]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0EF6F94D-A626-445A-B18A-D301D93DC5B9}"
+      DTS:ObjectName="LAPTOP-2JM42PHL\MSSQLSERVER01.Diagnosis_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-2JM42PHL\MSSQLSERVER01;Initial Catalog=Diagnosis_DB;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{0EF6F94D-A626-445A-B18A-D301D93DC5B9}LAPTOP-2JM42PHL\MSSQLSERVER01.Diagnosis_DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{6D864BC6-BFA6-4020-A232-BD475F804DBE}"
+      DTS:ObjectName="LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-2JM42PHL\MSSQLSERVER01;Initial Catalog=DW_hospital;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{6D864BC6-BFA6-4020-A232-BD475F804DBE}LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital 1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D05B92EE-B317-4278-AF4D-A437CA71597D}"
+      DTS:ObjectName="LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-2JM42PHL\MSSQLSERVER01;Initial Catalog=DW_hospital;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{D05B92EE-B317-4278-AF4D-A437CA71597D}LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital 1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Patients_DB]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{4B8AAD55-1C0D-4E6C-AC9B-BFE0C2441EF7}"
+      DTS:ObjectName="LAPTOP-2JM42PHL\MSSQLSERVER01.Patients_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-2JM42PHL\MSSQLSERVER01;Initial Catalog=Patients_DB;Integrated Security=True;Encrypt=False;Application Name=SSIS-Package-{4B8AAD55-1C0D-4E6C-AC9B-BFE0C2441EF7}LAPTOP-2JM42PHL\MSSQLSERVER01.Patients_DB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EDF49034-39EB-4F69-9CF1-B5B06B2F7BF4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Admissions_DB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Admissions_DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Admissions_DB"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Admissions_DB.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Admissions_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Admissions_DB]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[PatientID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[PatientID]"
+                      name="PatientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionID]"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]"
+                      name="AdmissionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionStartDate]"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionStartDate]"
+                      name="AdmissionStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionEndDate]"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionEndDate]"
+                      name="AdmissionEndDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[PatientID]"
+                      dataType="r8"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionID]"
+                      dataType="r8"
+                      name="AdmissionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      name="AdmissionStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      name="AdmissionEndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[PatientID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[PatientID]"
+                      name="PatientID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionID]"
+                      name="AdmissionID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionStartDate]"
+                      name="AdmissionStartDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionEndDate]"
+                      name="AdmissionEndDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Diagnosis_DB"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Diagnosis_DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Diagnosis_DB"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Diagnosis_DB.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Diagnosis_DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.Diagnosis_DB]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PatientID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PatientID]"
+                      name="PatientID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionID]"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]"
+                      name="AdmissionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PrimaryDiagnosisCode]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisCode]"
+                      name="PrimaryDiagnosisCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PrimaryDiagnosisDescription]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisDescription]"
+                      name="PrimaryDiagnosisDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[MedicalDepartment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[MedicalDepartment]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[MedicalDepartment]"
+                      name="MedicalDepartment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[DoctorName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorName]"
+                      name="DoctorName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[DoctorID]"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorID]"
+                      name="DoctorID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PatientID]"
+                      dataType="r8"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[AdmissionID]"
+                      dataType="r8"
+                      name="AdmissionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PrimaryDiagnosisCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="PrimaryDiagnosisCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[PrimaryDiagnosisDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="PrimaryDiagnosisDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[MedicalDepartment]"
+                      dataType="wstr"
+                      length="255"
+                      name="MedicalDepartment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[DoctorName]"
+                      dataType="wstr"
+                      length="255"
+                      name="DoctorName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].ExternalColumns[DoctorID]"
+                      dataType="r8"
+                      name="DoctorID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PatientID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PatientID]"
+                      name="PatientID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[AdmissionID]"
+                      name="AdmissionID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PrimaryDiagnosisCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PrimaryDiagnosisCode]"
+                      name="PrimaryDiagnosisCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PrimaryDiagnosisDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[PrimaryDiagnosisDescription]"
+                      name="PrimaryDiagnosisDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[MedicalDepartment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[MedicalDepartment]"
+                      name="MedicalDepartment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[DoctorName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[DoctorName]"
+                      name="DoctorName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[DoctorID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[DoctorID]"
+                      name="DoctorID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[PatientID]"
+                      cachedDataType="r8"
+                      cachedName="PatientID"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[AdmissionID]"
+                      cachedDataType="r8"
+                      cachedName="AdmissionID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AdmissionID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[PatientID]"
+                      cachedDataType="r8"
+                      cachedName="PatientID"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[AdmissionID]"
+                      cachedDataType="r8"
+                      cachedName="AdmissionID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[AdmissionStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionStartDate"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionStartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[AdmissionEndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionEndDate"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionEndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionID]"
+                      name="AdmissionID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[AdmissionID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[PatientID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[PatientID]"
+                      name="PatientID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[PatientID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionStartDate]"
+                      name="AdmissionStartDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[AdmissionStartDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionEndDate]"
+                      name="AdmissionEndDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[AdmissionEndDate]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\PopulateDateDimension"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="PopulateDateDimension"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Date_Dim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\PopulateDateDimension.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2JM42PHL\MSSQLSERVER01.DW_hospital 1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].Columns[AdmissionID]"
+                      cachedDataType="r8"
+                      cachedName="AdmissionID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionID]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].Columns[PatientID]"
+                      cachedDataType="r8"
+                      cachedName="PatientID"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[PatientID]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[PatientID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].Columns[AdmissionStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionStartDate"
+                      externalMetadataColumnId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionStartDate]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionStartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].Columns[AdmissionEndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionEndDate"
+                      externalMetadataColumnId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionEndDate]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[AdmissionEndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionID]"
+                      dataType="wstr"
+                      length="20"
+                      name="AdmissionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[PatientID]"
+                      dataType="wstr"
+                      length="20"
+                      name="PatientID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[PatientDateOfBirth]"
+                      dataType="dbTimeStamp"
+                      name="PatientDateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      name="AdmissionStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input].ExternalColumns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      name="AdmissionEndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\PopulateDateDimension.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\PopulateDateDimension.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\PopulateDateDimension.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\PopulateDateDimension.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[PatientID]"
+                      cachedDataType="r8"
+                      cachedName="PatientID"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PatientID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[AdmissionID]"
+                      cachedDataType="r8"
+                      cachedName="AdmissionID"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[PrimaryDiagnosisCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PrimaryDiagnosisCode"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[PrimaryDiagnosisDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PrimaryDiagnosisDescription"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisDescription]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[MedicalDepartment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MedicalDepartment"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[MedicalDepartment]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[DoctorName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DoctorName"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[DoctorID]"
+                      cachedDataType="r8"
+                      cachedName="DoctorID"
+                      lineageId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PatientID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PatientID]"
+                      name="PatientID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PatientID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AdmissionID]"
+                      name="AdmissionID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PrimaryDiagnosisCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PrimaryDiagnosisCode]"
+                      name="PrimaryDiagnosisCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PrimaryDiagnosisDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[PrimaryDiagnosisDescription]"
+                      name="PrimaryDiagnosisDescription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[PrimaryDiagnosisDescription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MedicalDepartment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MedicalDepartment]"
+                      name="MedicalDepartment">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[MedicalDepartment]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DoctorName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DoctorName]"
+                      name="DoctorName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DoctorID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DoctorID]"
+                      name="DoctorID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output].Columns[DoctorID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[PatientID]"
+                      cachedDataType="r8"
+                      cachedName="PatientID"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[PatientID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[AdmissionID]"
+                      cachedDataType="r8"
+                      cachedName="AdmissionID"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[AdmissionStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionStartDate"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionStartDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[AdmissionEndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="AdmissionEndDate"
+                      lineageId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionEndDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[PatientID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[PatientID]"
+                      name="PatientID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[PatientID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionID]"
+                      name="AdmissionID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionStartDate]"
+                      name="AdmissionStartDate"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionStartDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionEndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[AdmissionEndDate]"
+                      name="AdmissionEndDate"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output].Columns[AdmissionEndDate]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Data Flow Task\Diagnosis_DB.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[ADO NET Source Output1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Data Flow Task\Admissions_DB.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\PopulateDateDimension.Inputs[ADO NET Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Data Flow Task\Diagnosis_DB"
+          TopLeft="319.999995231628,76.9999988526106" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\Admissions_DB"
+          TopLeft="684.999989792705,94.9999985843897" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="381.999994307757,178.999997332692" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="723.999989211559,185.999997228384" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="587.999991238117,295.999995589256" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Data Flow Task\PopulateDateDimension"
+          TopLeft="586.999991253018,397.999994069338" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
+          TopLeft="391.999995231628,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.7999990761281,60.3999984800816"
+              Start="0,0"
+              End="38.7999990761281,52.8999984800816">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1999992400408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.1999992400408"
+                    Point2="0,30.1999992400408"
+                    Point3="4,30.1999992400408" />
+                  <mssgle:LineSegment
+                    End="34.7999990761281,30.1999992400408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.7999990761281,30.1999992400408"
+                    Point2="38.7999990761281,30.1999992400408"
+                    Point3="38.7999990761281,34.1999992400408" />
+                  <mssgle:LineSegment
+                    End="38.7999990761281,52.8999984800816" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ADO NET Source Output1]"
+          TopLeft="760.999989792705,136.59999858439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.1999994188546,49.3999986439944"
+              Start="0,0"
+              End="16.1999994188546,41.8999986439944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6999993219972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6999993219972"
+                    Point2="0,24.6999993219972"
+                    Point3="4,24.6999993219972" />
+                  <mssgle:LineSegment
+                    End="12.1999994188546,24.6999993219972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.1999994188546,24.6999993219972"
+                    Point2="16.1999994188546,24.6999993219972"
+                    Point3="16.1999994188546,28.6999993219972" />
+                  <mssgle:LineSegment
+                    End="16.1999994188546,41.8999986439944" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="430.799994307757,220.599997332692">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="221.999996930361,75.3999982565641"
+              Start="0,0"
+              End="221.999996930361,67.8999982565641">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999991282821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999991282821"
+                    Point2="0,37.6999991282821"
+                    Point3="4,37.6999991282821" />
+                  <mssgle:LineSegment
+                    End="217.999996930361,37.6999991282821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="217.999996930361,37.6999991282821"
+                    Point2="221.999996930361,37.6999991282821"
+                    Point3="221.999996930361,41.6999991282821" />
+                  <mssgle:LineSegment
+                    End="221.999996930361,67.8999982565641" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="777.199989211559,227.599997228384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.133331306775,68.3999983608723"
+              Start="0,0"
+              End="-104.133331306775,60.8999983608723">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.539511223639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.539511223639"
+                    Point2="0,40.539511223639"
+                    Point3="-4,40.539511223639" />
+                  <mssgle:LineSegment
+                    End="-100.133331306775,40.539511223639" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.133331306775,40.539511223639"
+                    Point2="-104.133331306775,40.539511223639"
+                    Point3="-104.133331306775,44.539511223639" />
+                  <mssgle:LineSegment
+                    End="-104.133331306775,60.8999983608723" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="652.799991238117,337.599995589256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.4000000149013,60.3999984800816"
+              Start="0,0"
+              End="29.4000000149013,52.8999984800816">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1999992400408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.1999992400408"
+                    Point2="0,30.1999992400408"
+                    Point3="4,30.1999992400408" />
+                  <mssgle:LineSegment
+                    End="25.4000000149013,30.1999992400408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.4000000149013,30.1999992400408"
+                    Point2="29.4000000149013,30.1999992400408"
+                    Point3="29.4000000149013,34.1999992400408" />
+                  <mssgle:LineSegment
+                    End="29.4000000149013,52.8999984800816" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\PopulateDateDimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Diagnosis_DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Admissions_DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
