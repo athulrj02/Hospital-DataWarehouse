@@ -1,0 +1,108 @@
+// ----------------------
+// 1. Create Constraints (Indexes)
+// ----------------------
+CREATE CONSTRAINT CategoryIDUnique FOR (c:Category) REQUIRE c.ProductCategoryID IS UNIQUE;
+CREATE CONSTRAINT SubcategoryIDUnique FOR (sc:Subcategory) REQUIRE sc.ProductSubcategoryID IS UNIQUE;
+CREATE CONSTRAINT ProductIDUnique FOR (p:Product) REQUIRE p.ProductID IS UNIQUE;
+CREATE CONSTRAINT VendorIDUnique FOR (v:Vendor) REQUIRE v.BusinessEntityID IS UNIQUE;
+
+
+
+// ----------------------
+// 2. Load Data from CSV Files (Node Creation)
+// ----------------------
+LOAD CSV WITH HEADERS FROM 'file:///ProductCategory.csv' AS row
+CREATE (:Category {
+  ProductCategoryID: toInteger(row.ProductCategoryID),
+  Name: row.Name
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///ProductSubcategory.csv' AS row
+CREATE (:Subcategory {
+  ProductSubcategoryID: toInteger(row.ProductSubcategoryID),
+  ProductCategoryID: toInteger(row.ProductCategoryID),
+  Name: row.Name
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///Product.csv' AS row
+CREATE (:Product {
+  ProductID: toInteger(row.ProductID),
+  ProductSubcategoryID: toInteger(row.ProductSubcategoryID),
+  Name: row.Name
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///Vendor.csv' AS row
+CREATE (:Vendor {
+  BusinessEntityID: toInteger(row.BusinessEntityID),
+  Name: row.Name
+});
+
+
+
+// ----------------------
+// 3. Create Relationships
+// ----------------------
+
+// Link Subcategories to Categories
+MATCH (sc:Subcategory), (c:Category)
+WHERE sc.ProductCategoryID = c.ProductCategoryID
+CREATE (sc)-[:BELONGS_TO]->(c);
+
+// Link Products to Subcategories
+MATCH (p:Product), (sc:Subcategory)
+WHERE p.ProductSubcategoryID = sc.ProductSubcategoryID
+CREATE (p)-[:PART_OF]->(sc);
+
+// Link Vendors to Products from ProductVendor.csv
+LOAD CSV WITH HEADERS FROM 'file:///ProductVendor.csv' AS row
+MATCH (v:Vendor {BusinessEntityID: toInteger(row.BusinessEntityID)})
+MATCH (p:Product {ProductID: toInteger(row.ProductID)})
+CREATE (v)-[:SUPPLIES]->(p);
+
+
+
+// ----------------------
+// 4. Queries for Node Counts
+// ----------------------
+MATCH (c:Category) RETURN count(c) AS categoryCount;
+MATCH (sc:Subcategory) RETURN count(sc) AS subcategoryCount;
+MATCH (p:Product) RETURN count(p) AS productCount;
+MATCH (v:Vendor) RETURN count(v) AS vendorCount;
+
+
+
+// ----------------------
+// 5. Analytical Queries
+// ----------------------
+
+// Products with no supplier
+MATCH (p:Product)
+WHERE NOT ( ()-[:SUPPLIES]->(p) )
+RETURN p.Name AS UnsuppliedProduct;
+
+// Count of suppliers per product
+MATCH (v:Vendor)-[:SUPPLIES]->(p:Product)
+RETURN p.Name AS Product, count(v) AS SupplierCount
+ORDER BY SupplierCount DESC;
+
+// Vendors supplying a specific product
+MATCH (v:Vendor)-[:SUPPLIES]->(p:Product {Name: "Mountain-100 Silver, 44"})
+RETURN v.Name AS Vendor;
+
+
+
+// ----------------------
+// 6. Visualization Queries
+// ----------------------
+
+// Full product-category-subcategory hierarchy (Bikes)
+MATCH (c:Category {Name: 'Bikes'})<-[:BELONGS_TO]-(sc:Subcategory)<-[:PART_OF]-(p:Product)
+RETURN c, sc, p;
+
+// Products and their subcategories
+MATCH (p:Product)-[:PART_OF]->(sc:Subcategory)
+RETURN p, sc;
+
+// Products under a specific subcategory
+MATCH (sc:Subcategory {Name: "Mountain Bikes"})<-[:PART_OF]-(p:Product)
+RETURN sc, p;
